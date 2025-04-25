@@ -247,6 +247,8 @@ function generateWaveform() {
     const fy = parseFloat(document.getElementById("fy").value);
     const fx = parseFloat(document.getElementById("fx").value);
     const phase = parseFloat(document.getElementById("phase").value) * Math.PI / 180;
+    const ch1Voltage = parseFloat(document.getElementById("ch1_voltage").value);
+    const ch2Voltage = parseFloat(document.getElementById("ch2_voltage").value);
     const pointCount = 1000;
     const showCH1 = document.getElementById("ch1").checked;
     const showCH2 = document.getElementById("ch2").checked;
@@ -270,8 +272,8 @@ function generateWaveform() {
     // 生成波形数据
     for (let i = 0; i < pointCount; i++) {
         const t = i / 100;
-        channels.ch1.data[i] = Math.sin(2 * Math.PI * fx * t);
-        channels.ch2.data[i] = Math.sin(2 * Math.PI * fy * t + phase);
+        channels.ch1.data[i] = ch1Voltage * Math.sin(2 * Math.PI * fx * t);
+        channels.ch2.data[i] = ch2Voltage * Math.sin(2 * Math.PI * fy * t + phase);
     }
     
     // 根据勾选状态显示图表

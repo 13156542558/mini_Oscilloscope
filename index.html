@@ -34,29 +34,48 @@
             <section class="control-panel">
                 <h2>波形控制</h2>
                 
-                <div class="control-group">
-                    <label for="ch1">显示通道1 (CH1):</label>
-                    <input type="checkbox" id="ch1" checked>
+                <!-- 显示通道行 -->
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="ch1">显示通道1 (CH1):</label>
+                        <input type="checkbox" id="ch1" checked>
+                    </div>
+                    <div class="control-group">
+                        <label for="ch2">显示通道2 (CH2):</label>
+                        <input type="checkbox" id="ch2" checked>
+                    </div>
                 </div>
                 
-                <div class="control-group">
-                    <label for="ch2">显示通道2 (CH2):</label>
-                    <input type="checkbox" id="ch2" checked>
+                <!-- 电压控制行 -->
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="ch1_voltage">CH1电压 (V):</label>
+                        <input type="number" id="ch1_voltage" value="1" min="0.1" max="10" step="0.1">
+                    </div>
+                    <div class="control-group">
+                        <label for="ch2_voltage">CH2电压 (V):</label>
+                        <input type="number" id="ch2_voltage" value="1" min="0.1" max="10" step="0.1">
+                    </div>
                 </div>
                 
-                <div class="control-group">
-                    <label for="fx">频率 CH1 (Hz):</label>
-                    <input type="number" id="fx" value="1" min="0.1" max="100" step="0.1">
+                <!-- 频率控制行 -->
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="fx">频率 CH1 (Hz):</label>
+                        <input type="number" id="fx" value="1" min="0.1" max="100" step="0.1">
+                    </div>
+                    <div class="control-group">
+                        <label for="fy">频率 CH2 (Hz):</label>
+                        <input type="number" id="fy" value="1" min="0.1" max="100" step="0.1">
+                    </div>
                 </div>
                 
-                <div class="control-group">
-                    <label for="fy">频率 CH2 (Hz):</label>
-                    <input type="number" id="fy" value="1" min="0.1" max="100" step="0.1">
-                </div>
-                
-                <div class="control-group">
-                    <label for="phase">相位差 (度):</label>
-                    <input type="number" id="phase" value="0" min="0" max="360" step="1">
+                <!-- 相位差控制行 -->
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="phase">相位差 (度):</label>
+                        <input type="number" id="phase" value="0" min="0" max="360" step="1">
+                    </div>
                 </div>
                 
                 <button onclick="generateWaveform()">生成波形</button>
