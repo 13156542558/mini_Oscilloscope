@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mini 示波器</title>
+    <meta name="description" content="一个简单的示波器数据可视化工具">
+    <link rel="stylesheet" href="style.css">
+    <script src="Highcharts-10.0.0/highcharts.js"></script>
+    <script src="Highcharts-10.0.0/exporting.js"></script>
+    <script src="Highcharts-10.0.0/boost.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mini 示波器</h1>
+        </header>
+        
+        <main>
+            <!-- 文件上传区域 -->
+            <section class="file-upload">
+                <label for="file1">上传数据文件 (CSV/XLSX):</label>
+                <input type="file" id="file1" accept=".csv,.xlsx">
+            </section>
+            
+            <!-- 进度显示 -->
+            <section class="progress-section">
+                <label for="pro">读取进度:</label>
+                <progress id="pro" value="0" max="100"></progress>
+            </section>
+            
+            <!-- 控制面板 -->
+            <section class="control-panel">
+                <h2>波形控制</h2>
+                
+                <div class="control-group">
+                    <label for="ch1">显示通道1 (CH1):</label>
+                    <input type="checkbox" id="ch1" checked>
+                </div>
+                
+                <div class="control-group">
+                    <label for="ch2">显示通道2 (CH2):</label>
+                    <input type="checkbox" id="ch2" checked>
+                </div>
+                
+                <div class="control-group">
+                    <label for="fx">频率 CH1 (Hz):</label>
+                    <input type="number" id="fx" value="1" min="0.1" max="100" step="0.1">
+                </div>
+                
+                <div class="control-group">
+                    <label for="fy">频率 CH2 (Hz):</label>
+                    <input type="number" id="fy" value="1" min="0.1" max="100" step="0.1">
+                </div>
+                
+                <div class="control-group">
+                    <label for="phase">相位差 (度):</label>
+                    <input type="number" id="phase" value="0" min="0" max="360" step="1">
+                </div>
+                
+                <button onclick="generateWaveform()">生成波形</button>
+            </section>
+            
+            <!-- 图表显示区域 -->
+            <section id="container"></section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
